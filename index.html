@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/master.css">
+</head>
+<body>
+    <main class="list">
+        <div id="header">
+            <h1 id="title">Lista de tareas</h1>
+        </div>
+        <div id="date">
+            <div id="dateRight">
+                <h3 id="dateNumber"></h3>
+                <!--<div id="dateNumber"></div>-->
+                <div id="dateMonthYear">
+                    <h3 id="dateMonth"></h3>
+                    <!--<div id="dateMonth"></div>-->
+                    <h3 id="dateYear"></h3>
+                    <!--<div id="dateYear"></div>-->
+                </div>
+            </div>
+            <h3 id="dateDay"></h3>
+            <!--<div id="dateDay"></div>-->
+        </div>
+
+        <form>
+            <input id="newTask" placeholder="Nueva tarea" type="text">
+            <button id="addTask">+</button>
+            <button id="sortTasks">Ordenar</button>
+        </form>
+        <div id="tasksList"></div>
+
+        <!--<ul id="tasksList">
+            <li>
+                <input class="task" type="text">
+                <button class="cleanTask">x</button>
+            </li>
+        </ul>-->
+
+        <button id="cleanTasks">Limpiar todo</button>
+    </main>
+
+    <script src="js/master.js"></script>
+</body>
+</html>
