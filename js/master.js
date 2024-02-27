@@ -28,10 +28,9 @@ const addNewTask = event => {
 
     if(task.trim().length!=0){
         let newTask = document.createElement('div')
-        newTask.classList.add('task')
+        newTask.classList.add('task') /*'roundBorder');*/
 
         let newTaskText = document.createElement('li')
-        /*newTask.classList.add('task', 'roundBorder');*/
         newTaskText.textContent = task
         document.getElementById('newTask').value=''
 
@@ -62,9 +61,6 @@ const changeTaskState = event => {
 
 
 const cleanTask = event => {
-    // Detiene la propagación para evitar que se dispare el evento de click del div de la tarea
-    //event.stopPropagation();
-
     // Elimina el elemento de la tarea del DOM
     event.target.parentNode.remove();
     /*Cuando hago clic en el botón de eliminar dentro de una tarea, event.target se refiere al botón. Por lo tanto, event.target.parentNode se refiere al div que contiene tanto el texto de la tarea como el botón de eliminar. Al llamar a .remove() en este nodo padre, estoy eliminando todo el div de la tarea del DOM, eliminando efectivamente la tarea de la lista.*/
@@ -78,12 +74,50 @@ addTaskButton.addEventListener('click', addNewTask)
 
 //Borro todas las tareas
 const cleanTasks = () => {
-    let tasks = document.querySelectorAll('.task')
-    tasks.forEach(function(task){
-        task.remove();
-    });
+    tasksList.innerHTML = ''
 }
 
 const cleanTasksButton = document.getElementById('cleanTasks')
 
 cleanTasksButton.addEventListener('click', cleanTasks)
+
+
+//Ordeno las tareas        
+//NO CUMPLE LO QUE QUIERO :(
+const sortButton = document.getElementById('sortTasks')
+
+const order = () => {
+    const done = []
+    const toDo = []
+
+    //Separo las tareas realizadas de las que faltan por hacer
+    tasksList.querySelectorAll('.task').forEach(element => {
+        element.classList.contains('completed') ? done.push(element) : toDo.push(element) 
+    })
+
+    tasksList.innerHTML = ''
+    
+    //Agrego primero las tareas que faltan realizar 
+    toDo.forEach(element => {
+        tasksList.appendChild(element)
+    })
+
+    //Agrego las que fueron hechas
+    done.forEach(element => {
+        tasksList.appendChild(element)
+    })
+    
+    console.log('Tareas por hacer:');
+    toDo.forEach(task => {
+        console.log(task.textContent);
+    });
+
+    console.log('Tareas completadas:');
+    done.forEach(task => {
+        console.log(task.textContent);
+    });
+
+};
+
+
+sortButton.addEventListener('click', order)
