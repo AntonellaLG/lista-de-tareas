@@ -39,6 +39,7 @@ const addNewTask = event => {
 
         //Creo button para eliminar la tarea
         let newTaskButton = document.createElement('button')
+        newTaskButton.classList.add('taskButton')
         newTaskButton.innerHTML = 'x'
 
         //Limpio la tarea
