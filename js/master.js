@@ -28,14 +28,11 @@ const addNewTask = event => {
 
     if(task.trim().length!=0){
         let newTask = document.createElement('div')
-        newTask.classList.add('task') /*'roundBorder');*/
+        newTask.classList.add('task')
 
         let newTaskText = document.createElement('li')
         newTaskText.textContent = task
         document.getElementById('newTask').value=''
-
-        //Dispongo el cambio de estado de la tarea
-        newTask.addEventListener('click', changeTaskState)
 
         //Creo button para eliminar la tarea
         let newTaskButton = document.createElement('button')
@@ -53,12 +50,6 @@ const addNewTask = event => {
 };
 
 /*classList es un objeto especial con métodos para agregar, eliminar y alternar ( add/remove/toggle ) una sola clase. */
-
-
-const changeTaskState = event => {
-    event.target.classList.toggle('completed');
-    /*Remuevo una clase específica de la lista de clases de un elemento. No elimino el elemento del DOM; simplemente altero su atributo class quitando la clase especificada. Es apropiado cuando necesito modificar el aspecto o comportamiento de un elemento a través de CSS*/
-};
 
 
 const cleanTask = event => {
@@ -81,44 +72,3 @@ const cleanTasks = () => {
 const cleanTasksButton = document.getElementById('cleanTasks')
 
 cleanTasksButton.addEventListener('click', cleanTasks)
-
-
-//Ordeno las tareas        
-//NO CUMPLE LO QUE QUIERO :(
-const sortButton = document.getElementById('sortTasks')
-
-const order = () => {
-    const done = []
-    const toDo = []
-
-    //Separo las tareas realizadas de las que faltan por hacer
-    tasksList.querySelectorAll('.task').forEach(element => {
-        element.classList.contains('completed') ? done.push(element) : toDo.push(element) 
-    })
-
-    tasksList.innerHTML = ''
-    
-    //Agrego primero las tareas que faltan realizar 
-    toDo.forEach(element => {
-        tasksList.appendChild(element)
-    })
-
-    //Agrego las que fueron hechas
-    done.forEach(element => {
-        tasksList.appendChild(element)
-    })
-    
-    console.log('Tareas por hacer:');
-    toDo.forEach(task => {
-        console.log(task.textContent);
-    });
-
-    console.log('Tareas completadas:');
-    done.forEach(task => {
-        console.log(task.textContent);
-    });
-
-};
-
-
-sortButton.addEventListener('click', order)
