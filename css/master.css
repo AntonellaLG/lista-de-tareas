@@ -1,0 +1,141 @@
+:root{
+    --light: whitesmoke;
+    --dark: #161616;
+    --diabled: #e7e7e7;
+    --lavender: #6D214F;
+    --purple: #8a19ff;
+    --lilac: #c38aff;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Lato, sans-serif;
+    background-image: url("../img/lavender.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list{
+    margin: 20px;
+    padding: 20px;        
+    width: 100%;
+    max-width: 350px;
+    border: 5px solid var(--diabled);
+    background-color: var(--light);
+    text-align: center;
+}
+
+#title{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#date,
+#dateRight{
+    display: flex;
+    align-items: center;
+}
+
+#date{
+    justify-content: space-between;
+}
+
+#dateNumber{
+    font-size: 50px;
+    margin-right: 7px;
+}
+
+#dateMonthYear,
+#dateDay{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+#dateDay{
+    text-transform: uppercase;
+}
+
+#addTaskButton{
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-color: var(--light);
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 50%;
+    border-color: var(--purple);
+    background-color: var(--purple);
+    color: var(--light);
+    cursor: pointer;
+}
+
+#newTask{
+    width: 73%;
+    height: 20px;
+    margin: 10px 5px 10px 0px;
+    padding: 5px 25px;
+    border: 3px;
+    border-color: var(--light);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
+#newTask:focus{
+    outline: none;
+}
+
+.task{
+    margin-top: 13px;
+    padding: 15px;
+    border: 3px;
+    width: 225px; 
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .02em;   
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--lilac);
+}
+
+li{
+    list-style: none;
+    color: var(--light);    
+}
+
+.taskButton{
+    width: 25px;
+    height: 25px;
+    border-width: 2px;
+    border-radius: 50%;
+    border-color: var(--lavender);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--lavender);
+    cursor: pointer;
+}
+
+#cleanTasks{
+    border: none;
+    border-radius: 20px;
+    margin-top: 15px;
+    width: 100px;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    background-color: var(--lavender);
+    color: var(--diabled);
+    cursor: pointer;
+    transition:all .5s ease-in-out;
+}
+
+#cleanTasks:hover{
+    border: 2px solid var(--lavender);
+    background-color: var(--light);
+    color: var(--lavender);
+}
